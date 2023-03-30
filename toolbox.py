@@ -236,3 +236,7 @@ def clear_line_break(txt):
     txt = txt.replace('  ', ' ')
     txt = txt.replace('  ', ' ')
     return txt
+
+def clear_input(txt):
+    txt = ""
+    return txt

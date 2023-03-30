@@ -13,7 +13,7 @@ PORT = find_free_port() if WEB_PORT <= 0 else WEB_PORT
 AUTHENTICATION = None if AUTHENTICATION == [] else AUTHENTICATION
 
 initial_prompt = "Serve me as a writing and programming assistant."
-title_html = """<h1 align="center">ChatGPT 学术优化</h1>"""
+title_html = """<h1 align="center">GPT-3.5 Research Assistant</h1>"""
 
 # 问询记录, python 版本建议3.9+（越新越好）
 import logging
@@ -74,7 +74,7 @@ with gr.Blocks(theme=set_theme, analytics_enabled=False) as demo:
             system_prompt = gr.Textbox(show_label=True, placeholder=f"System Prompt", label="System prompt", value=initial_prompt).style(container=True)
             with gr.Accordion("arguments", open=False):
                 top_p = gr.Slider(minimum=-0, maximum=1.0, value=1.0, step=0.01,interactive=True, label="Top-p (nucleus sampling)",)
-                temperature = gr.Slider(minimum=-0, maximum=2.0, value=1.0, step=0.01, interactive=True, label="Temperature",)
+                temperature = gr.Slider(minimum=-0, maximum=2.0, value=0.5, step=0.1, interactive=True, label="Temperature",)
 
     predict_args = dict(fn=predict, inputs=[txt, top_p, temperature, chatbot, history, system_prompt], outputs=[chatbot, history, statusDisplay], show_progress=True)
     empty_txt_args = dict(fn=lambda: "", inputs=[], outputs=[txt]) # 用于在提交后清空输入栏
