@@ -21,7 +21,7 @@ def main():
     from themes.theme import adjust_theme, advanced_css, theme_declaration, load_dynamic_theme
 
     initial_prompt = "Serve me as a writing and programming assistant."
-    title_html = f"<h1 align=\"center\">我的GPT科研助手 {get_current_version()}</h1>{theme_declaration}"
+    title_html = f"<h1 align=\"center\">Leo的GPT科研助手 {get_current_version()}</h1>{theme_declaration}"
     description =  "Github源代码开源和更新[地址🚀](https://github.com/binary-husky/gpt_academic), "
     description += "感谢热情的[开发者们❤️](https://github.com/binary-husky/gpt_academic/graphs/contributors)."
     description += "</br></br>常见问题请查阅[项目Wiki](https://github.com/binary-husky/gpt_academic/wiki), "
@@ -151,7 +151,7 @@ def main():
                 with gr.Tab("更换模型 & Prompt", elem_id="interact-panel"):
                     md_dropdown = gr.Dropdown(AVAIL_LLM_MODELS, value=LLM_MODEL, label="更换LLM模型/请求源").style(container=False)
                     top_p = gr.Slider(minimum=-0, maximum=1.0, value=1.0, step=0.01,interactive=True, label="Top-p (nucleus sampling)",)
-                    temperature = gr.Slider(minimum=-0, maximum=2.0, value=1.0, step=0.01, interactive=True, label="Temperature",)
+                    temperature = gr.Slider(minimum=-0, maximum=2.0, value=0.5, step=0.01, interactive=True, label="Temperature",)
                     max_length_sl = gr.Slider(minimum=256, maximum=1024*32, value=4096, step=128, interactive=True, label="Local LLM MaxLength",)
                     system_prompt = gr.Textbox(show_label=True, lines=2, placeholder=f"System Prompt", label="System prompt", value=initial_prompt)
 
