@@ -90,10 +90,11 @@ def get_core_functions():
         #     "PreProcess": clear_line_break,    # 预处理：清除换行符
         # },
 
-        "中译英": {
+        "翻译成英文": {
             "Prefix":   r"Please translate following sentence to English:" + "\n\n",
             "Suffix":   r"",
         },
+
         # "学术中英互译": {
         #     "Prefix":   r"I want you to act as a scientific English-Chinese translator, " +
         #                 r"I will provide you with some paragraphs in one language " +
@@ -106,11 +107,17 @@ def get_core_functions():
         #     "Suffix": "",
         #     "Color": "secondary",
         # },
-        "英译中": {
+        "翻译成中文": {
             "Prefix":   r"翻译成地道的中文：" + "\n\n",
             "Suffix":   r"",
-            "Visible": False,
+            "Visible": True,
         },
+
+        "翻译成法文": {
+            "Prefix":   r"Please translate following sentence to French:" + "\n\n",
+            "Suffix":   r"",
+        },
+
 
         "解释代码": {
             "Prefix":   r"请解释以下代码：" + "\n```\n",
