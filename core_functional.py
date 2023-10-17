@@ -7,12 +7,12 @@ from toolbox import clear_line_break
 
 def get_core_functions():
     return {
-        "英语学术润色": {
+        "英语学术润色(精准)": {
             # 前缀，会被加在你的输入之前。例如，用来描述你的要求，例如翻译、解释代码、润色等等
-            "Prefix":   r"Below is a paragraph from an academic paper. Polish the writing to meet the academic style, " +
-                        r"improve the spelling, grammar, clarity, concision and overall readability. When necessary, rewrite the whole sentence. " +
-                        r"Firstly, you should provide the polished paragraph. "
-                        r"Secondly, you should list all your modification and explain the reasons to do so in markdown table." + "\n\n",
+            "Prefix":   r"Below are paragraphs from an academic paper. Polish the writing to meet the academic style, " +
+                        r"improve the spelling, grammar, clarity, concision and overall readability." + "\n\n",
+                        # r"Firstly, you should provide the polished paragraph. "
+                        # r"Secondly, you should list all your modification and explain the reasons to do so in markdown table." + "\n\n",
             # 后缀，会被加在你的输入之后。例如，配合前缀可以把你的输入内容用引号圈起来
             "Suffix":   r"",
             # 按钮颜色 (默认 secondary)
@@ -22,6 +22,23 @@ def get_core_functions():
             # 是否在触发时清除历史 (默认 False，即不处理之前的对话历史)
             "AutoClearHistory": False
         },
+
+        "英语学术润色(华丽)": {
+            # 前缀，会被加在你的输入之前。例如，用来描述你的要求，例如翻译、解释代码、润色等等
+            "Prefix":   r"Below are paragraphs from an academic paper. Polish the writing to meet the academic style and make them ornate." + "\n\n",
+                        # r"improve the spelling, grammar, clarity, concision and overall readability." + "\n\n",
+                        # r"Firstly, you should provide the polished paragraph. "
+                        # r"Secondly, you should list all your modification and explain the reasons to do so in markdown table." + "\n\n",
+            # 后缀，会被加在你的输入之后。例如，配合前缀可以把你的输入内容用引号圈起来
+            "Suffix":   r"",
+            # 按钮颜色 (默认 secondary)
+            "Color":    r"secondary",
+            # 按钮是否可见 (默认 True，即可见)
+            "Visible": True,
+            # 是否在触发时清除历史 (默认 False，即不处理之前的对话历史)
+            "AutoClearHistory": False
+        },
+
         "中文学术润色": {
             "Prefix":   r"作为一名中文学术论文写作改进助理，你的任务是改进所提供文本的拼写、语法、清晰、简洁和整体可读性，" +
                         r"同时分解长句，减少重复，并提供改进建议。请只提供文本的更正版本，避免包括解释。请编辑以下文本" + "\n\n",
