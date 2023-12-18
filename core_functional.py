@@ -118,6 +118,13 @@ def get_core_functions():
             "Suffix":   r"",
         },
 
+        "总结段落": {
+            "Prefix":   r"Below are paragraphs from an academic paper. " +
+                        r"Please summarize them into one or two sentences. " + "\n\n",
+            "Suffix":   r"",
+            "PreProcess": clear_line_break,    # 预处理：清除换行符
+        },
+
 
         "解释代码": {
             "Prefix":   r"请解释以下代码：" + "\n```\n",
