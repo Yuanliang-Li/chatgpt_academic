@@ -23,10 +23,10 @@ def get_core_functions():
             "AutoClearHistory": False
         },
 
-        "英语学术润色(华丽)": {
+        "英语学术改写": {
             # 前缀，会被加在你的输入之前。例如，用来描述你的要求，例如翻译、解释代码、润色等等
-            "Prefix":   r"Below are paragraphs from an academic paper. Polish the writing to meet the academic style and make them ornate." + "\n\n",
-                        # r"improve the spelling, grammar, clarity, concision and overall readability." + "\n\n",
+            "Prefix":   r"Below are paragraphs from an academic paper. Rewrite them to make them logical, " +
+                        r"improve the spelling, grammar, clarity, concision and overall readability to meet the academic style." + "\n\n",
                         # r"Firstly, you should provide the polished paragraph. "
                         # r"Secondly, you should list all your modification and explain the reasons to do so in markdown table." + "\n\n",
             # 后缀，会被加在你的输入之后。例如，配合前缀可以把你的输入内容用引号圈起来
@@ -39,17 +39,42 @@ def get_core_functions():
             "AutoClearHistory": False
         },
 
+
+        "内容拓展": {
+            # 前缀，会被加在你的输入之前。例如，用来描述你的要求，例如翻译、解释代码、润色等等
+            "Prefix":   r"Below are uncompleted paragraphs from an academic paper. Complete these paragraphs by extending the contents, " +
+                        r"improve the spelling, grammar, clarity, concision and overall readability to meet the academic style." + "\n\n",
+                        # r"Firstly, you should provide the polished paragraph. "
+                        # r"Secondly, you should list all your modification and explain the reasons to do so in markdown table." + "\n\n",
+            # 后缀，会被加在你的输入之后。例如，配合前缀可以把你的输入内容用引号圈起来
+            "Suffix":   r"",
+            # 按钮颜色 (默认 secondary)
+            "Color":    r"secondary",
+            # 按钮是否可见 (默认 True，即可见)
+            "Visible": True,
+            # 是否在触发时清除历史 (默认 False，即不处理之前的对话历史)
+            "AutoClearHistory": False
+        },
+
+        "段落总结": {
+            "Prefix":   r"Below are paragraphs from an academic paper. " +
+                        r"Summarize them into three sentences." + "\n\n",
+            "Suffix":   r"",
+            "PreProcess": clear_line_break,    # 预处理：清除换行符
+        },
+
+        "论文总结": {
+            "Prefix":   r"Below are paragraphs from an academic paper. " +
+                        r"Summarize them into three or four sentences, covering the research gaps, the proposed solutions, and experimental results or contributions." + "\n\n",
+            "Suffix":   r"",
+            "PreProcess": clear_line_break,    # 预处理：清除换行符
+        },
+
+
         "继续改进": {
             "Prefix":   r"Please improve again." + "\n\n",
             "Suffix":   r"",
             "PreProcess": clear_input # 预处理：不需要input内容
-        },
-
-
-        "中文学术润色": {
-            "Prefix":   r"作为一名中文学术论文写作改进助理，你的任务是改进所提供文本的拼写、语法、清晰、简洁和整体可读性，" +
-                        r"同时分解长句，减少重复，并提供改进建议。请只提供文本的更正版本，避免包括解释。请编辑以下文本" + "\n\n",
-            "Suffix":   r"",
         },
 
         "语法纠正(简洁)": {
@@ -90,10 +115,10 @@ def get_core_functions():
         #     "PreProcess": clear_line_break,    # 预处理：清除换行符
         # },
 
-        "翻译成英文": {
-            "Prefix":   r"Please translate following sentence to English:" + "\n\n",
-            "Suffix":   r"",
-        },
+        # "翻译成英文": {
+        #     "Prefix":   r"Please translate following sentence to English:" + "\n\n",
+        #     "Suffix":   r"",
+        # },
 
         # "学术中英互译": {
         #     "Prefix":   r"I want you to act as a scientific English-Chinese translator, " +
@@ -107,36 +132,37 @@ def get_core_functions():
         #     "Suffix": "",
         #     "Color": "secondary",
         # },
-        "翻译成中文": {
-            "Prefix":   r"翻译成地道的中文：" + "\n\n",
-            "Suffix":   r"",
-            "Visible": True,
-        },
+        # "翻译成中文": {
+        #     "Prefix":   r"翻译成地道的中文：" + "\n\n",
+        #     "Suffix":   r"",
+        #     "Visible": True,
+        # },
 
-        "翻译成法文": {
-            "Prefix":   r"Please translate following sentence to French:" + "\n\n",
-            "Suffix":   r"",
-        },
-
-        "总结段落": {
-            "Prefix":   r"Below are paragraphs from an academic paper. " +
-                        r"Please summarize them into one or two sentences. " + "\n\n",
-            "Suffix":   r"",
-            "PreProcess": clear_line_break,    # 预处理：清除换行符
-        },
+        # "翻译成法文": {
+        #     "Prefix":   r"Please translate following sentence to French:" + "\n\n",
+        #     "Suffix":   r"",
+        # },
 
 
-        "解释代码": {
-            "Prefix":   r"请解释以下代码：" + "\n```\n",
-            "Suffix":   "\n```\n",
-        },
+
+        # "解释代码": {
+        #     "Prefix":   r"请解释以下代码：" + "\n```\n",
+        #     "Suffix":   "\n```\n",
+        # },
         "参考文献转Bib": {
             "Prefix":   r"Here are some bibliography items, please transform them into bibtex style." +
                         r"Note that, reference styles maybe more than one kind, you should transform each item correctly." +
                         r"Items need to be transformed:",
             "Visible": False,
             "Suffix":   r"",
-        }
+        },
+
+        "邮件润色": {
+            "Prefix":   r"Below is e-mail. " +
+                        r"Please rewrite it and make it more formal and polite. " + "\n\n",
+            "Suffix":   r"",
+            "PreProcess": clear_line_break,    # 预处理：清除换行符
+        },
     }
 
 
